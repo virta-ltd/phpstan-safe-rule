@@ -1,5 +1,5 @@
 {
-	"name": "Safe PHP",
+	"name": "PHPStan-Safe-Rule",
 	"build": {
 		"context": "..",
 		"dockerfile": "./Dockerfile"
