@@ -26,7 +26,6 @@ jobs:
       with:
         php-version: ${{ matrix.php }}
         coverage: pcov
-        extensions: intl
     - uses: php-actions/composer@v6
     - run: vendor/bin/phpunit tests --coverage-text --coverage-filter src
 
@@ -39,10 +38,6 @@ jobs:
       with:
         path: vendor
         key: vendor-${{ hashFiles('composer.json') }}
-    - uses: shivammathur/setup-php@v2
-      with:
-        php-version: 8.2
-        extensions: intl
     - uses: php-actions/composer@v6
     - run: ./vendor/bin/phpstan analyse src --level 5
 
@@ -55,9 +50,5 @@ jobs:
       with:
         path: vendor
         key: vendor-${{ hashFiles('composer.json') }}
-    - uses: shivammathur/setup-php@v2
-      with:
-        php-version: 8.2
-        extensions: intl
     - uses: php-actions/composer@v6
     - run: ./vendor/bin/phpcs
