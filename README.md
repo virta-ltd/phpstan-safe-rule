@@ -12,4 +12,4 @@ This PHPStan rule will help you detect unsafe function call and will propose you
 
 Please read [shish/safe documentation](https://github.com/shish/safe) for details about installation and usage.
 
-(This is a fork of `thecodingmachine/phpstan-safe-rules`, with added support for PHP 8)
+(This is a fork of `thecodingmachine/phpstan-safe-rule`, with added support for PHP 8)
