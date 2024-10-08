@@ -43,7 +43,7 @@ class UseSafeClassesRule implements Rule
         $unsafeClasses = ClassListLoader::getClassList();
 
         if (isset($unsafeClasses[$className])) {
-            return ["Class $className is unsafe to use. Its methods can return FALSE instead of throwing an exception. Please add 'use Safe\\$className;' at the beginning of the file to use the variant provided by the 'thecodingmachine/safe' library."];
+            return ["Class $className is unsafe to use. Its methods can return FALSE instead of throwing an exception. Please add 'use Safe\\$className;' at the beginning of the file to use the variant provided by the 'shish/safe' library."];
         }
 
         return [];

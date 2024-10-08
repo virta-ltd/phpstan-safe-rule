@@ -16,7 +16,7 @@ class UseSafeFunctionsRuleTest extends RuleTestCase
     {
         $this->analyse([__DIR__ . '/data/fopen.php'], [
             [
-                "Function fopen is unsafe to use. It can return FALSE instead of throwing an exception. Please add 'use function Safe\\fopen;' at the beginning of the file to use the variant provided by the 'thecodingmachine/safe' library.",
+                "Function fopen is unsafe to use. It can return FALSE instead of throwing an exception. Please add 'use function Safe\\fopen;' at the beginning of the file to use the variant provided by the 'shish/safe' library.",
                 4,
             ],
         ]);

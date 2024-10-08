@@ -24,8 +24,6 @@ class FunctionListLoader
                 $functions = require __DIR__.'/../../../safe/generated/functionsList.php';
             } elseif (\file_exists(__DIR__.'/../../vendor/shish/safe/generated/functionsList.php')) {
                 $functions = require __DIR__.'/../../vendor/shish/safe/generated/functionsList.php';
-            } elseif (\file_exists(__DIR__.'/../../vendor/thecodingmachine/safe/generated/functionsList.php')) {
-                $functions = require __DIR__.'/../../vendor/thecodingmachine/safe/generated/functionsList.php';
             } else {
                 throw new \RuntimeException('Could not find shish/safe\'s functionsList.php file.');
             }
