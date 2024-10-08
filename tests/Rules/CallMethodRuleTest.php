@@ -8,6 +8,7 @@ use PHPStan\Rules\Methods\CallMethodsRule;
 use PHPStan\Rules\Methods\MethodCallCheck;
 use PHPStan\Rules\NullsafeCheck;
 use PHPStan\Rules\PhpDoc\UnresolvableTypeHelper;
+use PHPStan\Rules\Properties\PropertyReflectionFinder;
 use PHPStan\Rules\Rule;
 use PHPStan\Rules\RuleLevelHelper;
 use PHPStan\Testing\RuleTestCase;
@@ -18,10 +19,30 @@ class CallMethodRuleTest extends RuleTestCase
     protected function getRule(): Rule
     {
         $reflectionProvider = $this->createReflectionProvider();
-        $ruleLevelHelper = new RuleLevelHelper($reflectionProvider, true, true, true, false);
+        $ruleLevelHelper = new RuleLevelHelper(
+            $reflectionProvider,
+            checkNullables: true,
+            checkThisOnly: true,
+            checkUnionTypes: true,
+            checkExplicitMixed: false,
+            checkImplicitMixed: false,
+            newRuleLevelHelper: true,
+            checkBenevolentUnionTypes: false
+        );
         return new CallMethodsRule(
             new MethodCallCheck($reflectionProvider, $ruleLevelHelper, true, true),
-            new FunctionCallParametersCheck($ruleLevelHelper, new NullsafeCheck(), new PhpVersion(PHP_VERSION_ID), new UnresolvableTypeHelper(), true, false, false, false)
+            new FunctionCallParametersCheck(
+                $ruleLevelHelper,
+                new NullsafeCheck(),
+                new PhpVersion(PHP_VERSION_ID),
+                new UnresolvableTypeHelper(),
+                new PropertyReflectionFinder($reflectionProvider),
+                checkArgumentTypes: true,
+                checkArgumentsPassedByReference: false,
+                checkExtraArguments: false,
+                checkMissingTypehints: false,
+                checkUnresolvableParameterTypes: false,
+            )
         );
     }
 
