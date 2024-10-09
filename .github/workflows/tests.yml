@@ -27,7 +27,7 @@ jobs:
         php-version: ${{ matrix.php }}
         coverage: pcov
     - uses: php-actions/composer@v6
-    - run: vendor/bin/phpunit tests --coverage-text --coverage-filter src
+    - run: ./vendor/bin/phpunit tests --coverage-text --coverage-filter src
 
   static:
     name: Static Analysis
