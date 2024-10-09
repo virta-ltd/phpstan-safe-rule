@@ -65,7 +65,7 @@ class UseSafeFunctionsRule implements Rule
             if ($expr instanceof Expr\BinaryOp\BitwiseOr) {
                 return array_merge($parseValue($expr->left, $options), $parseValue($expr->right, $options));
             } elseif ($expr instanceof Expr\ConstFetch) {
-                return array_merge($options, $expr->name->parts);
+                return array_merge($options, $expr->name->getParts());
             } elseif ($expr instanceof Scalar\LNumber) {
                 return array_merge($options, [$expr->value]);
             } else {
