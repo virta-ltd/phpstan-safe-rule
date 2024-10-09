@@ -1,6 +1,7 @@
 [![Latest Stable Version](https://poser.pugx.org/shish/phpstan-safe-rule/v/stable)](https://packagist.org/packages/shish/phpstan-safe-rule)
 [![Total Downloads](https://poser.pugx.org/shish/phpstan-safe-rule/downloads)](https://packagist.org/packages/shish/phpstan-safe-rule)
 [![License](https://poser.pugx.org/shish/phpstan-safe-rule/license)](https://packagist.org/packages/shish/phpstan-safe-rule)
+[![Continuous Integration](https://github.com/shish/phpstan-safe-rule/workflows/Automated%20Tests/badge.svg)](https://github.com/shish/phpstan-safe-rule/actions)
 
 
 PHPStan rules for shish/safe
