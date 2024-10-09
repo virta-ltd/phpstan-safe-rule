@@ -1,19 +1,11 @@
 <?php
 
-
 namespace TheCodingMachine\Safe\PHPStan\Rules;
 
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
-use PHPStan\Reflection\FunctionReflection;
-use PHPStan\Reflection\MethodReflection;
 use PHPStan\Rules\Rule;
-use PHPStan\ShouldNotHappenException;
 use TheCodingMachine\Safe\PHPStan\Utils\ClassListLoader;
-use TheCodingMachine\Safe\PHPStan\Utils\FunctionListLoader;
-use PhpParser\Node\Arg;
-use PhpParser\Node\Expr;
-use PhpParser\Node\Scalar;
 
 /**
  * This rule checks that no "unsafe" classes are instantiated in code.

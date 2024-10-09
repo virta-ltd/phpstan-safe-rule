@@ -1,11 +1,6 @@
 <?php
 
-
 namespace TheCodingMachine\Safe\PHPStan\Utils;
-
-use PHPStan\Analyser\Scope;
-use PHPStan\Reflection\FunctionReflection;
-use PHPStan\Reflection\MethodReflection;
 
 class FunctionListLoader
 {
