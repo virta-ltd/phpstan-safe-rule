@@ -5,6 +5,8 @@ namespace TheCodingMachine\Safe\PHPStan\Rules;
 use PhpParser\Node;
 use PHPStan\Analyser\Scope;
 use PHPStan\Rules\Rule;
+use PHPStan\Rules\RuleErrorBuilder;
+use PHPStan\ShouldNotHappenException;
 use TheCodingMachine\Safe\PHPStan\Utils\FunctionListLoader;
 use PhpParser\Node\Arg;
 use PhpParser\Node\Expr;
@@ -26,6 +28,7 @@ class UseSafeFunctionsRule implements Rule
      * @param Node\Expr\FuncCall $node
      * @param \PHPStan\Analyser\Scope $scope
      * @return string[]
+     * @throws ShouldNotHappenException
      */
     public function processNode(Node $node, Scope $scope): array
     {
@@ -53,7 +56,11 @@ class UseSafeFunctionsRule implements Rule
                 }
             }
 
-            return ["Function $functionName is unsafe to use. It can return FALSE instead of throwing an exception. Please add 'use function Safe\\$functionName;' at the beginning of the file to use the variant provided by the 'shish/safe' library."];
+            return [
+                RuleErrorBuilder::message(
+                    "Function $functionName is unsafe to use. It can return FALSE instead of throwing an exception. Please add 'use function Safe\\$functionName;' at the beginning of the file to use the variant provided by the 'shish/safe' library."
+                )->file($scope->getFile())->line($node->getLine())->build()
+            ];
         }
 
         return [];

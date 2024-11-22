@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": "^8.2",
-        "phpstan/phpstan": "^1.0",
+        "phpstan/phpstan": "^2.0",
         "nikic/php-parser": "^5.0",
         "shish/safe": "^2.0"
     },

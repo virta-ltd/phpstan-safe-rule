@@ -26,7 +26,6 @@ class CallMethodRuleTest extends RuleTestCase
             checkUnionTypes: true,
             checkExplicitMixed: false,
             checkImplicitMixed: false,
-            newRuleLevelHelper: true,
             checkBenevolentUnionTypes: false
         );
         return new CallMethodsRule(
@@ -41,7 +40,6 @@ class CallMethodRuleTest extends RuleTestCase
                 checkArgumentsPassedByReference: false,
                 checkExtraArguments: false,
                 checkMissingTypehints: false,
-                checkUnresolvableParameterTypes: false,
             )
         );
     }
